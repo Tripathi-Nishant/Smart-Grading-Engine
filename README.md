@@ -1,102 +1,110 @@
-Smart Grading Engine
+# 🧠 Smart Grading Engine  
+### AI-Powered Automatic Grading System for Teachers  
 
-AI-Powered Automatic Grading System for Teachers
-Built using Flask • Mistral AI OCR • SQLAlchemy • Chart.js
+A Flask-based web app that uses **Mistral AI OCR** to automatically extract text from handwritten student answer sheets, compare it with a teacher’s reference answer, and generate grades instantly.  
+Includes an **analytics dashboard** for tracking student performance, grade distribution, and progress trends.
 
-📋 Overview
+---
 
-Smart Grading Engine is an intelligent AI tool that automatically evaluates handwritten or digital student answers.
-It extracts text from answer sheet images using Mistral AI OCR, compares it to the teacher’s reference answer, and instantly provides:
-✅ Grade (A–F)
-✅ Marks (%)
-✅ Similarity Score
-✅ Highlighted matched and missing keywords
+## 🚀 Features
 
-It also includes a dashboard to track student performance, grade distribution, and class progress — making grading fast, transparent, and smart.
+- 🤖 **Automatic AI Grading** — Grades written answers using keyword similarity.  
+- 🧾 **OCR Integration (Mistral AI)** — Extracts text from images with high accuracy.  
+- 📊 **Analytics Dashboard** — Visual charts for student progress and grade trends.  
+- 💾 **Persistent Database (SQLite)** — Stores all student results for review.  
+- 📤 **Export Results (CSV)** — Download complete grading data.  
+- 💬 **Keyword Feedback** — Highlights matched and missing terms.  
 
-🚀 Features
+---
 
-🧾 Automatic AI Grading — instantly grade handwritten or typed answers
+## 🧩 Tech Stack
 
-🤖 OCR Integration — extracts text using Mistral AI OCR
+| Layer | Technology |
+|--------|-------------|
+| **Frontend** | HTML5, CSS3, Bootstrap 5, Chart.js |
+| **Backend** | Flask (Python) |
+| **OCR / AI** | Mistral AI |
+| **Database** | SQLite (SQLAlchemy ORM) |
+| **Deployment** | Railway / Render / Replit |
 
-📊 Analytics Dashboard — visualizes grades, averages, and trends
+---
 
-📥 CSV Export — download all grading data
+## ⚙️ Installation & Setup
 
-💾 Persistent Storage — stores all graded results in SQLite
-
-⚡ Simple UI — built with Flask & Bootstrap
-
-🔒 Secure API Key Handling — environment variable for Mistral API
-
-🧩 Tech Stack
-Layer	Technology
-Frontend	HTML5, CSS3, Bootstrap 5, Chart.js
-Backend	Flask (Python)
-AI OCR	Mistral AI
-Database	SQLite (via SQLAlchemy ORM)
-Deployment	Railway / Render / Replit
-🧠 How It Works
-
-Teacher uploads a student’s answer image or pastes the text.
-
-Mistral AI OCR extracts text from the image.
-
-The app compares extracted text with the teacher’s correct answer.
-
-Grades and marks are assigned based on keyword similarity.
-
-All results are saved and displayed in a dashboard with visual analytics.
-
-⚙️ Project Structure
-Smart-Grading-Engine/
-├── app.py               # Flask app with routes and grading logic
-├── models.py            # SQLAlchemy model for storing results
-├── requirements.txt     # Dependencies
-├── runtime.txt          # Python version (for Render/Railway)
-├── templates/
-│   ├── index.html       # Upload and grading form
-│   ├── result.html      # Display grading results
-│   └── dashboard.html   # Analytics dashboard
-├── uploads/             # Stores uploaded student images
-└── smart_grading.db     # SQLite database (auto-created)
-
-🧪 Installation & Setup
-1️⃣ Clone the Repository
+### 1️⃣ Clone the Repository
+```bash
 git clone https://github.com/Tripathi-Nishant/Smart-Grading-Engine.git
 cd Smart-Grading-Engine
 
-2️⃣ Create a Virtual Environment
+2️⃣ Create Virtual Environment
 python -m venv venv
-venv\Scripts\activate   # Windows
-source venv/bin/activate   # macOS/Linux
+venv\Scripts\activate      # On Windows
+source venv/bin/activate   # On macOS/Linux
 
 3️⃣ Install Dependencies
 pip install -r requirements.txt
 
 4️⃣ Add Mistral API Key
 
-Set your Mistral API key securely:
+Set your environment variable:
 
-🪟 Windows
+# Windows
 set MISTRAL_API_KEY=your_api_key_here
 
-🍎 macOS/Linux
+# macOS/Linux
 export MISTRAL_API_KEY=your_api_key_here
 
 5️⃣ Run the App
 python app.py
+Visit 👉 http://127.0.0.1:5000
 
+📊 Dashboard
 
-Now open 👉 http://127.0.0.1:5000
+Visualize grades, averages, and progress trends at:
 
-📊 Analytics Dashboard
+/dashboard
 
-The built-in dashboard provides:
+Includes:
 
 🥧 Grade Distribution
+
 📈 Average Marks by Student
-📅 Performance Trend Over Time
-📤 CSV Export of Results
-👨‍💻 Developer
+
+📅 Class Performance Over Time
+
+📤 CSV Export
+
+📜 Grading Logic
+Similarity (%)	Grade	Marks
+≥ 90	A	100
+75–89	B	85
+60–74	C	70
+40–59	D	55
+< 40	F	30
+
+📁 Project Structure
+Smart-Grading-Engine/
+├── app.py
+├── models.py
+├── requirements.txt
+├── runtime.txt
+├── templates/
+│   ├── index.html
+│   ├── result.html
+│   └── dashboard.html
+├── uploads/
+└── smart_grading.db
+
+Environment Variables
+Variable	Description
+MISTRAL_API_KEY	Your Mistral AI OCR API key
+
+Future Enhancements
+
+🧾 AI-based semantic grading (LLM-powered)
+
+📬 Automated student feedback
+
+👥 Multi-user (Teacher/Student) login system
+
+🧾 Downloadable PDF report cards
